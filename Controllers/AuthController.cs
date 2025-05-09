@@ -1,3 +1,4 @@
+using AtonTask.Models.InputModels;
 using BLL;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -18,7 +19,7 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost("login")]
-    public async Task<IActionResult> Login([FromBody] LoginRequest request)
+    public async Task<IActionResult> Login([FromBody] LoginDto request)
     {
         var token = string.Empty;
         try
@@ -34,5 +35,3 @@ public class AuthController : ControllerBase
         return Ok(new { Token = token });
     }
 }
-
-public record LoginRequest(string Login, string Password);
