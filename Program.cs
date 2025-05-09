@@ -16,12 +16,8 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        //i use arch btw
         builder.Services.AddDbContext<TaskDbContext>(options => 
-            options.UseSqlite(builder.Configuration.GetConnectionString(
-                RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ?
-                "DefaultConnectionW" : "DefaultConnectionL"
-            )));
+            options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
         builder.Services.AddControllers();
         builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
             {

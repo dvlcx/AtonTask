@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AtonTask")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fb248222ed4f9dc59ccca70076cc5cb51affcf67")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e43b2c45fb2034cd0d1fa6f22b03efddf7781032")]
 [assembly: System.Reflection.AssemblyProductAttribute("AtonTask")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AtonTask")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

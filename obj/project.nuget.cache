@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "STI9Cf6ZXBc=",
+  "dgSpecHash": "3xeEhmMNHQU=",
   "success": true,
-  "projectFilePath": "/home/dvlcx/Projects/AtonTask/AtonTask/AtonTask.csproj",
+  "projectFilePath": "/home/dvlcx/Projects/AtonTask/AtonTask.csproj",
   "expectedPackageFiles": [
     "/home/dvlcx/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/home/dvlcx/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/9.0.4/microsoft.aspnetcore.authentication.jwtbearer.9.0.4.nupkg.sha512",

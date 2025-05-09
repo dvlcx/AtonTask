@@ -3877,11 +3877,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/dvlcx/Projects/AtonTask/AtonTask/AtonTask.csproj",
+      "projectUniqueName": "/home/dvlcx/Projects/AtonTask/AtonTask.csproj",
       "projectName": "AtonTask",
-      "projectPath": "/home/dvlcx/Projects/AtonTask/AtonTask/AtonTask.csproj",
+      "projectPath": "/home/dvlcx/Projects/AtonTask/AtonTask.csproj",
       "packagesPath": "/home/dvlcx/.nuget/packages/",
-      "outputPath": "/home/dvlcx/Projects/AtonTask/AtonTask/obj/",
+      "outputPath": "/home/dvlcx/Projects/AtonTask/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/dvlcx/.nuget/NuGet/NuGet.Config"
