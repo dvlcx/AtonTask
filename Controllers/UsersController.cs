@@ -21,6 +21,10 @@ public class UsersController : ControllerBase
 
     [HttpPost]
     [Authorize(Policy = "AdminOnly")]
+    [Produces("application/json")]
+    [ProducesResponseType(StatusCodes.Status201Created)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> CreateUser([FromBody] UserCreateDto dto)
     {
         try 
@@ -36,6 +40,10 @@ public class UsersController : ControllerBase
 
     [HttpPut("{login}")]
     [Authorize(Policy = "AdminOrSelf")]
+    [Produces("application/json")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> UpdateUserProfile([FromBody] UserUpdateDto dto, string login)
     {
         return await this.ExecuteHelper(
@@ -46,6 +54,10 @@ public class UsersController : ControllerBase
 
     [HttpPut("{login}/password/{newPassword}")]
     [Authorize(Policy = "AdminOrSelf")]
+    [Produces("application/json")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> UpdatePassword(string login, string newPassword)
     {
         return await this.ExecuteHelper(
@@ -56,6 +68,10 @@ public class UsersController : ControllerBase
 
     [HttpPut("{login}/login/{newLogin}")]
     [Authorize(Policy = "AdminOrSelf")]
+    [Produces("application/json")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> UpdateLogin(string login, string newLogin)
     {
         return await this.ExecuteHelper(
@@ -66,6 +82,9 @@ public class UsersController : ControllerBase
 
     [HttpGet("active")]
     [Authorize(Policy = "AdminOnly")]
+    [Produces("application/json")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
     public async Task<IActionResult> GetActiveUsers()
     {
         var users = await _userRepo.GetActiveUsersAsync();
@@ -74,6 +93,10 @@ public class UsersController : ControllerBase
 
     [HttpGet("{login}")]
     [Authorize(Policy = "AdminOnly")]
+    [Produces("application/json")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> GetUserByLogin(string login)
     {
         var user = await _userRepo.GetUserDtoByLoginAsync(login);
@@ -82,6 +105,10 @@ public class UsersController : ControllerBase
 
     [HttpGet("self")]
     [Authorize]
+    [Produces("application/json")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> GetCurrentUser()
     {
         var user = await _userRepo.GetUserByLoginAsync(_сurrentUserLogin);
@@ -90,6 +117,9 @@ public class UsersController : ControllerBase
 
     [HttpGet("older-than/{age}")]
     [Authorize(Policy = "AdminOnly")]
+    [Produces("application/json")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
     public async Task<IActionResult> GetUsersOlderThan(int age)
     {
         var users = await _userRepo.GetUsersOlderThanAsync(age);
@@ -98,6 +128,11 @@ public class UsersController : ControllerBase
 
     [HttpDelete("{login}/soft")]
     [Authorize(Policy = "AdminOnly")]
+    [Produces("application/json")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> DeleteUserSoft(string login)
     {
         return await ExecuteHelper(
@@ -107,6 +142,11 @@ public class UsersController : ControllerBase
 
     [HttpDelete("{login}/hard")]
     [Authorize(Policy = "AdminOnly")]
+    [Produces("application/json")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> DeleteUserHard(string login)
     {
         return await ExecuteHelper(
@@ -116,6 +156,11 @@ public class UsersController : ControllerBase
 
     [HttpPut("{login}/restore")]
     [Authorize(Policy = "AdminOnly")]
+    [Produces("application/json")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> RestoreUser(string login)
     {
         return await ExecuteHelper(
